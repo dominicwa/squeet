@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+
+  squeet:
+    build: ./containers/app/
+    restart: always
+    ports:
+      - "9003:80"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASS=pass
+      - DB_NAME=squeet
+      - REBUILD=0
+      - TWITTER_CON_KEY=
+      - TWITTER_CON_SEC=
+      - TWITTER_ACC_KEY=
+      - TWITTER_ACC_SEC=
+
+  #adminer:
+  #  image: adminer
+  #  restart: always
+  #  ports:
+  #    - "9004:8080"
