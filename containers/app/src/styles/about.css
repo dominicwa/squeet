@@ -1,0 +1,45 @@
+* {
+	margin:				0;
+	padding:			0;
+}
+
+body {
+	font-family:		Georgia, "Times New Roman", Times, serif;
+	font-size:			24px;
+	text-align:			center;
+}
+
+#box {
+	width:				80%;
+	margin:				20px auto;
+}
+
+h1 {
+	margin-bottom:		40px;
+	font-size:			68px;
+	font-weight:		normal;	
+}
+
+h1 #st {
+	font-size:			24px;
+}
+
+h2 {
+	font-size:			24px;
+}
+
+h2, p {
+	margin-bottom:		20px;
+}
+
+a {
+	color:				#0099FF;
+}
+
+a:hover {
+	color:				#0000FF;
+}
+
+#blink {
+	margin-top:			40px;
+}
