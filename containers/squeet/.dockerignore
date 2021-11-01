@@ -3,6 +3,5 @@
 .DS_Store
 Thumbs.db
 
+**/.git
 **/src/vendor
-deploy.sh
-**/*.*.exclude

@@ -33,13 +33,13 @@
 				die('Couldn\'t fetch data (' . __LINE__ . '). ' . $oDB->error);
 			} else {
 				$sTopSearches = '';
-				$aRudeDict = explode(' ', file_get_contents('rudedict.txt'));
+				$aRudeDict = explode(' ', file_get_contents($_ENV['WORD_DICT_PATH']));
 
 				while($aSearch = mysqli_fetch_assoc($oRes)) {
 					if ($sTopSearches != '') {$sTopSearches .= ', ';}
 					foreach ($aRudeDict as $word) {
 						//$aSearch['query'] = str_ireplace($word, str_pad('', strlen($word), '*'), $aSearch['query']);
-						if (strtolower($aSearch['query']) == $word) {
+						if (strtolower($aSearch['query']) == strtolower($word)) {
 							$aSearch['query'] = str_pad('', strlen($word), '*');
 						}
 					}

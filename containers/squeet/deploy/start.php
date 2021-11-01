@@ -23,6 +23,7 @@
 
 	if (!$oDB->select_db($_ENV['DB_NAME']) || $_ENV['REBUILD'] == 1) {
 		syslog(LOG_INFO, 'Database not detected (or rebuild = 1). Creating...');
+		$bResult = $oDB->query('DROP DATABASE IF EXISTS ' . $_ENV['DB_NAME']);
 		$bResult = $oDB->query('CREATE DATABASE ' . $_ENV['DB_NAME']);
 		$bResult = $oDB->select_db($_ENV['DB_NAME']);
 		$bResult = $oDB->query('

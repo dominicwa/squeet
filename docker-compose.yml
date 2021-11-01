@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+
+  squeet:
+    image: dm/squeet:latest
+    restart: always
+    environment:
+      - 'CONTAINER_TIMEZONE=Australia/Perth'
+      - 'APACHE_SERVER_NAME=localhost'
+      - 'PHP_DATE_TIMEZONE=Australia\/Perth'
+      - 'PHP_ERROR_REPORTING=E_ALL'
+      - 'PHP_DISPLAY_ERRORS=On'
+      - 'PHP_VARIABLES_ORDER=EGPCS'
+      - 'DB_HOST=mysql'
+      - 'DB_USER=root'
+      - 'DB_PASS=pass'
+      - 'DB_NAME=squeet'
+      - 'REBUILD=0'
+      - 'TWITTER_CON_KEY='
+      - 'TWITTER_CON_SEC='
+      - 'TWITTER_ACC_KEY='
+      - 'TWITTER_ACC_SEC='
+      - 'WORD_DICT_PATH=rudedict.txt'
+    cap_add:
+      - SYS_TIME
+      - SYS_NICE
+
+volumes:
+  data:
+
+networks: 
+  default: 
+    external: 
+      name: dm-docker-host
