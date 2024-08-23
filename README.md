@@ -1,5 +1,8 @@
 # squeet
 
+> **Note**
+> squeet is no longer working or maintained (since Twitter became X).
+
 squeet (high-pitched voice required on pronunciation) is a simple tech demo that searches [Twitter](http://twitter.com/) in realtime and displays the results in a grid of squares. Each result contains the profile image of the twitter user and if you hover your mouse over that, the tweet text they posted.
 
 It looks like this:
